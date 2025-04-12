@@ -1,61 +1,137 @@
+/* Global Styles */
 body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-            color: white;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin: 0;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-        h1 {
-            font-size: 24px;
-            opacity: 0;
-            animation: slideDown 1s ease-in-out forwards;
-        }
-        p {
-            font-size: 16px;
-            margin-bottom: 20px;
-            opacity: 0;
-            animation: slideUp 1s ease-in-out forwards 0.5s;
-        }
-        .button {
-            display: block;
-            width: 200px;
-            padding: 10px;
-            margin: 10px auto;
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-            border-radius: 5px;
-            text-align: center;
-            transition: 0.3s;
-            opacity: 0;
-            transform: scale(0.8);
-            animation: fadeInScale 0.8s ease-in-out forwards 1s;
-        }
-        .blue { background-color: #007bff; }
-        .green { background-color: #28a745; }
-        .button:hover {
-            opacity: 0.8;
-            transform: scale(1.1);
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInScale {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bluearchive.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Container */
+.container {
+  text-align: center;
+  max-width: 800px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  animation: popIn 1.5s ease-out;
+}
+
+/* Header Animations */
+.animated-title {
+  font-size: 32px;
+  margin-bottom: 10px;
+  animation: slideDown 1s ease-in-out forwards;
+}
+
+.animated-subtitle {
+  font-size: 18px;
+  margin-bottom: 30px;
+  animation: slideUp 1s ease-in-out forwards 0.5s;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Button Styles */
+.button {
+  width: 240px;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  background-color: #007bff;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  transform: scale(0.95);
+  animation: fadeInScale 1s ease forwards;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Button Hover Effects */
+.button:hover {
+  transform: scale(1.05);
+  background-color: #0056b3;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+.button.green {
+  background-color: #28a745;
+}
+
+.button.green:hover {
+  background-color: #1e7e34;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeInScale {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideDown {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Floating Background Effect */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05), transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(255,255,255,0.05), transparent 50%);
+  animation: floatBackground 20s linear infinite;
+}
+
+@keyframes floatBackground {
+  0% { background-position: 20% 20%, 80% 80%; }
+  50% { background-position: 25% 25%, 75% 75%; }
+  100% { background-position: 20% 20%, 80% 80%; }
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+  .animated-title {
+    font-size: 24px;
+  }
+  .button {
+    width: 100%;
+    font-size: 16px;
+  }
+}

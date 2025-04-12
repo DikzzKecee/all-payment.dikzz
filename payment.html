@@ -1,24 +1,71 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="payment.css">
     <title>Metode Pembayaran</title>
+</head>
 <body>
-    <div class="payment-container">
-        <img src="about.jpg" alt="Profile">
-        <h2>Metode Pembayaran</h2>
-        <div class="payment-button"><img src="https://img12.pixhost.to/images/1282/581648451_imgtmp.jpg">Qris<a href="https://img12.pixhost.to/images/1282/581648451_imgtmp.jpg"><button class="copy-button">Klik</button></a></div>
-        <div class="payment-button" onclick="copyToClipboard('085642590388')">
-            <img src="dana.jpg" alt="Dana"> Dana <button class="copy-button">Copy</button>
-        </div>
-        <div class="payment-button" onclick="copyToClipboard('089643255472')">
-            <img src="ovo.jpg" alt="OVO"> OVO <button class="copy-button">Copy</button>
-        </div>
-        <div class="payment-button" onclick="copyToClipboard('089643255472')">
-            <img src="gopay.jpg" alt="GoPay"> GoPay <button class="copy-button">Copy</button>
-        </div>
+  <div class="payment-container">
+    <div class="profile-header">
+      <img src="about.jpg" alt="Profile" class="profile-img">
+      <div class="profile-info">
+        <h3>Dikzz</h3>
+        <p>Metode Pembayaran</p>
+      </div>
     </div>
-    <script src="payment.js"></script>
+    
+    <!-- QRIS -->
+    <div class="payment-button">
+      <img src="https://img12.pixhost.to/images/1282/581648451_imgtmp.jpg" alt="Qris"> Qris
+      <a href="https://img12.pixhost.to/images/1282/581648451_imgtmp.jpg" target="_blank">
+        <button class="copy-button">Klik</button>
+      </a>
+    </div>
+    
+    <!-- Dana -->
+    <div class="accordion">
+  <input type="checkbox" id="dana-toggle" hidden>
+  
+  <label for="dana-toggle" class="payment-button" onclick="copyToClipboard('085642590388')">
+    <img src="dana.jpg" alt="Dana"> Dana
+    <button class="copy-button">Salin</button>
+  </label>
+  
+  <div class="accordion-content">
+    <div class="payment-number">085642590388</div>
+  </div>
+</div>
+    
+    <!-- OVO -->
+    <div class="accordion">
+  <input type="checkbox" id="ovo-toggle" hidden>
+  
+  <label for="ovo-toggle" class="payment-button" onclick="copyToClipboard('089643255472')">
+    <img src="ovo.jpg" alt="OVO"> OVO
+    <button class="copy-button">Salin</button>
+  </label>
+  
+  <div class="accordion-content">
+    <div class="payment-number">089643255472</div>
+  </div>
+</div>
+    
+    <!-- GoPay -->
+    <div class="accordion">
+  <input type="checkbox" id="gopay-toggle" hidden>
+  
+  <label for="gopay-toggle" class="payment-button" onclick="copyToClipboard('089643255472')">
+    <img src="gopay.jpg" alt="GoPay"> GoPay
+    <button class="copy-button">Salin</button>
+  </label>
+  
+  <div class="accordion-content">
+    <div class="payment-number">089643255472</div>
+  </div>
+</div>
+
+  <script src="payment.js"></script>
 </body>
 </html>
